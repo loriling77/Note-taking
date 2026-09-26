@@ -1,16 +1,21 @@
 import '../styles/MainPage.css'
 import { useState } from 'react'
 import NoteCard from './NoteCard'
-import type { TagProps } from './Tags'
-import type { TitleProps } from './Title'
 
-type BodyProps = TitleProps & TagProps
+import type { TitleTagProps } from './NoteCard'
+
+type BodyProps = {
+    body: string,
+    setBody: (value: string) => void
+}
+
+export type BodyTitleTagProps = BodyProps & TitleTagProps
 
 
 
-export default function Body({ title, tag, setTitle, setTag }: BodyProps) {
+export default function Body({ title, tag, setTitle, setTag, body, setBody }: BodyTitleTagProps) {
 
-    const [body, setBody] = useState<string>('')
+
     const [submitted, setSubmitted] = useState<boolean>(false)
 
     const handleSubmit = () => {

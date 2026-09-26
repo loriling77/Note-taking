@@ -1,18 +1,21 @@
 import '../styles/MainPage.css'
 
+import { useNavigate } from 'react-router-dom'
 
 
 
-type CreateProps = {
-    setCreate: (value: boolean) => void
-}
-export default function BtnCreate({ setCreate }: CreateProps) {
 
+export default function BtnCreate() {
+    const navigate = useNavigate()
+    const goToCreateNote = () => {
+
+        navigate('./create')
+    }
 
 
     return (
         <>
-            <button className='btn-create' onClick={() => setCreate(true)} >Create
+            <button className='btn-create' onClick={goToCreateNote} >Create
             </button>
 
         </>
