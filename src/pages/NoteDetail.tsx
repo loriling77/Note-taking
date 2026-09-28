@@ -1,48 +1,104 @@
+import { useParams, useNavigate } from 'react-router-dom'
+import type { Note } from '../components/NoteCard'
+import PreviewBody from '../components/PreviewBody'
+import Body from '../components/Body'
+
 
 import '../styles/NoteDetail.css'
+import { useState } from 'react'
+
 export type NoteDetailProps = {
-    title: string,
-    tag: string,
-    body: string
+    notes: Note[]
+    setNotes: React.Dispatch<React.SetStateAction<Note[]>>
 
 }
 
-export default function NoteDetail({ title, tag, body }: NoteDetailProps) {
+export default function NoteDetail({
+    notes
+}: NoteDetailProps) {
+
+    const { id } = useParams()
+    const navigate = useNavigate()
+
+    const note = notes.find(
+        (note) => note.id === Number(id)
+    )
+
+    const [body, setBody] = useState(note?.body ?? '')
+
+    if (!note) {
+        return (
+            <div className="note-not-found">
+                <h2>Note not found</h2>
+
+                <button
+                    className="btn-back"
+                    onClick={() => navigate('/')}
+                >
+                    Back to Notes
+                </button>
+            </div>
+        )
+    }
+
+    const [clickEditNote, setClickEditNote] = useState<boolean>(false)
 
     return (
-        <>
-            <div className="note-detail">
+        <div className="note-detail-page">
 
-                <div className="note-detail-header">
+            <div className="note-detail-topbar">
+                <button
+                    className="btn-back"
+                    onClick={() => navigate(-1)}
+                >
+                    ← Back
+                </button>
 
-                    <div className="note-detail-title">
-                        <h1>{title}</h1>
+                <span className="note-detail-label">
+                    Note Detail
+                </span>
+            </div>
+
+            <div className="note-detail-card">
+
+                <div className="note-detail-heading">
+
+                    <div>
+                        <h1>{note.title}</h1>
+
                         <span className="note-detail-tag">
-                            {tag}
+                            {note.tag}
                         </span>
                     </div>
 
                     <div className="note-detail-actions">
-                        <button className="btn-edit">
-                            Edit
-                        </button>
+                        {clickEditNote ? (
+                            <button className="btn-edit-note" onClick={() => setClickEditNote(!clickEditNote)}>
+                                Save
+                            </button>
+                        ) : (
+                            <button className="btn-edit-note" onClick={() => setClickEditNote(!clickEditNote)}>
+                                Edit
+                            </button>
+                        )}
+
 
                         <button className="btn-delete-note">
                             Delete
-                        </button>
-
-                        <button className="btn-back">
-                            Back
                         </button>
                     </div>
 
                 </div>
 
+                <div className="note-divider" />
+
                 <div className="note-detail-body">
-                    <p>{body}</p>
+                    {clickEditNote ? (<Body body={body} setBody={setBody} ></Body>) : (<PreviewBody body={note.body}></PreviewBody>)}
+
                 </div>
 
             </div>
-        </>
+
+        </div>
     )
 }
