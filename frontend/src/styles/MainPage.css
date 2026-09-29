@@ -20,7 +20,7 @@ body {
 
 .body-box {
     width: 100%;
-    max-width: 900px;
+
     min-height: 400px;
 
     margin: 5px auto;
@@ -152,7 +152,7 @@ body {
 ========================= */
 
 .btn-submit {
-    margin-left: 800px;
+
     margin-top: 20px;
 
     padding: 11px 24px;
@@ -248,4 +248,36 @@ body {
 
     font-size: 12px;
     font-weight: 600;
+}
+
+.notes-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.body-preview-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    width: 100%;
+    margin-top: 20px;
+}
+
+.body-editor,
+.body-preview {
+    min-width: 0;
+}
+
+@media (max-width: 768px) {
+    .body-preview-container {
+        grid-template-columns: 1fr;
+    }
 }

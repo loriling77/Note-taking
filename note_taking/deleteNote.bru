@@ -1,0 +1,21 @@
+meta {
+  name: deleteNote
+  type: http
+  seq: 3
+}
+
+delete {
+  url: '''
+    {"id":1,
+       "title": "React",
+      "tag": "Frontend",
+      "body": "# Hello React"
+    http://localhost:5000/api/delete/<int:note_id>
+'''
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

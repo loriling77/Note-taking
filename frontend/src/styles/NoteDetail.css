@@ -1,0 +1,209 @@
+.note-detail-page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 32px;
+
+    background-color: #f5f7fb;
+
+    box-sizing: border-box;
+}
+
+
+/* 顶部导航 */
+
+.note-detail-topbar {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-detail-label {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #6b7280;
+}
+
+
+/* 主卡片 */
+
+.note-detail-card {
+    width: 90%;
+    max-width: 900px;
+
+    min-height: 420px;
+
+    margin: 0 auto;
+    padding: 32px;
+
+    background-color: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+}
+
+
+/* 标题区域 */
+
+.note-detail-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.note-detail-heading h1 {
+    margin: 0 0 12px 0;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+
+/* Tag */
+
+.note-detail-tag {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    background-color: #eff6ff;
+    color: #2563eb;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Edit / Delete */
+
+.note-detail-actions {
+    display: flex;
+
+    gap: 10px;
+}
+
+.note-detail-actions button {
+    padding: 9px 16px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.btn-edit-note {
+    border: none;
+
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-edit-note:hover {
+    background-color: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+.btn-delete-note {
+    border: 1px solid #fecaca;
+
+    background-color: #fff1f2;
+    color: #dc2626;
+}
+
+.btn-delete-note:hover {
+    background-color: #fee2e2;
+}
+
+
+/* 分割线 */
+
+.note-divider {
+    height: 1px;
+
+    margin: 28px 0;
+
+    background-color: #e5e7eb;
+}
+
+
+/* 正文 */
+
+.note-detail-body {
+    min-height: 250px;
+}
+
+.note-detail-body p {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #374151;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+
+/* Back */
+
+.btn-back {
+    padding: 9px 16px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background-color: white;
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-back:hover {
+    background-color: #f3f4f6;
+}
+
+
+/* 找不到 note */
+
+.note-not-found {
+    width: 90%;
+    max-width: 500px;
+
+    margin: 100px auto;
+    padding: 40px;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
